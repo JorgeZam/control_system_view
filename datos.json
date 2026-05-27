@@ -2,7 +2,7 @@
   "sistema": {
     "nombre": "Sistema masa-resorte-amortiguador",
     "planta": "G(s) = 1 / (s^2 + 0.8s + 1)",
-    "setpoint": 1.5,
+    "setpoint": 1.0,
     "dt": 0.02,
     "duracion": 12.0
   },
@@ -5469,7 +5469,7 @@
         1.00176
       ],
       "metricas": {
-        "overshoot": 38.3,
+        "overshoot": 72.5,
         "settling": 5.36,
         "rise": 0.5,
         "sse": 0.0002,
