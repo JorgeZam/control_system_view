@@ -1,32 +1,45 @@
-# CONTROL·LAB — Visor de Respuesta PID
+# CONTROL LAB - Visor de Respuesta PID
 
-Demostración para EL4203 Programación Avanzada. Página web estática que lee
-resultados de simulación de un sistema de control (controlador PID sobre una
-planta de segundo orden) desde `datos.json` y los visualiza.
+Proyecto de demostracion para EL4203 Programacion Avanzada.
+Es una aplicacion web estatica que carga resultados de simulacion desde
+`datos.json` y los visualiza en graficos interactivos.
 
-## Qué muestra
-- **Respuesta a escalón** de tres sintonías PID (conservadora, balanceada, agresiva).
-- **Señal de control** u(t) con saturación del actuador.
-- **Radar comparativo** del desempeño normalizado.
-- **Barras** comparando sobrepaso y tiempo de asentamiento.
-- **Métricas** (sobrepaso, asentamiento, subida, error permanente) por sintonía.
+## Funcionalidades
+- Respuesta a escalon para tres sintonias PID: conservadora, balanceada y agresiva.
+- Señal de control `u(t)` con saturacion del actuador.
+- Radar comparativo de desempeno normalizado.
+- Grafico de barras para sobrepaso y tiempo de asentamiento.
+- Panel de metricas por sintonia: sobrepaso, asentamiento, subida y error permanente.
 
-## Archivos
-- `index.html` — toda la interfaz (HTML + CSS + JS, Chart.js desde CDN).
-- `datos.json` — resultados de la simulación (generados aparte, no calculados aquí).
+## Estructura del proyecto
+- `index.html`: interfaz completa (HTML, CSS y JavaScript) usando Chart.js por CDN.
+- `datos.json`: resultados precomputados de simulacion.
+- `.gitignore`: exclusiones de archivos locales para Git.
 
-## Ejecutar localmente
-Por el `fetch` de `datos.json`, necesita un servidor (no abrir el archivo directo):
+## Requisitos
+- Navegador web moderno.
+- Un servidor HTTP local (necesario porque `fetch` no funciona abriendo el archivo directo).
 
-    python3 -m http.server 8000
+## Ejecutar en local
+Desde la carpeta del proyecto:
 
-Luego abrir http://localhost:8000
+```bash
+python -m http.server 8000
+```
 
-## Desplegar en Vercel
-1. Subir esta carpeta a un repositorio de GitHub.
-2. Conectar el repo en vercel.com (framework preset: "Other", sin build).
-3. Listo: queda en una URL pública.
+Luego abrir:
 
-> Nota: la página solo *muestra* resultados ya calculados. La simulación del
-> sistema dinámico se hace aparte; por eso este proyecto encaja en el modelo
-> estático de Vercel sin necesidad de backend.
+```text
+http://localhost:8000
+```
+
+## Despliegue en Vercel
+1. Sube este proyecto a GitHub.
+2. En Vercel, importa el repositorio.
+3. Selecciona el preset `Other` y deja Build Command vacio.
+4. Deploy.
+
+## Notas
+- Esta app no ejecuta la simulacion numerica en el frontend.
+- Solo consume y presenta resultados ya generados en `datos.json`.
+- Es compatible con despliegue estatico (sin backend).
